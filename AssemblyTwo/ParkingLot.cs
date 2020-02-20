@@ -41,6 +41,7 @@ namespace AssemblyTwo
 
         public IVehicle RemoveVehicle(string regNum)
         {
+            regNum = regNum.ToUpper();
             int spot = FindVehicle(regNum);
 
             IVehicle removedVehicle = parkingLot[spot].RemoveVehicle(regNum);
@@ -50,6 +51,7 @@ namespace AssemblyTwo
 
         public bool MoveVehicle(string regNum, int spot)
         {
+            regNum = regNum.ToUpper();
             int oldSpot = FindVehicle(regNum);
 
             IVehicle movingVehicle = RemoveVehicle(regNum);
@@ -80,7 +82,7 @@ namespace AssemblyTwo
                                 parkingLot[i].AddVehicle(vehicle);
                                 parkingLot[j].RemoveVehicle(vehicle.RegNum);
 
-                                orders.Add($"Move {vehicle.GetType()} {vehicle.RegNum} from spot {j} to spot {i}");
+                                orders.Add($"Move {vehicle.GetType().ToString().Substring(12).ToLower()} {vehicle.RegNum} from spot {j} to spot {i}");
                               
                             }
                         }
@@ -92,6 +94,7 @@ namespace AssemblyTwo
 
         public int FindVehicle(string regNum)
         {
+            regNum = regNum.ToUpper();
             int spot = -1;
             for (int i = 1; i < parkingLot.Count; i++)
             {

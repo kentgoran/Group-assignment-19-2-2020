@@ -14,7 +14,7 @@ namespace AssemblyOne
 
         public Car(string regNum)
         {
-            this.regNum = regNum;
+            this.regNum = regNum.ToUpper();
             this.arrivalTime = DateTime.Now;
         }
 
