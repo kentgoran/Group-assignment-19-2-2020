@@ -67,28 +67,33 @@ namespace AssemblyTwo
 
         public List<string> Optimize()
         {
+            int test = 1;
+
             List<string> orders = new List<string>();
-            for (int i = 1; i < parkingLot.Count; i++)
+
+            for (int i = parkingLot.Count-1; i > 1; i--)
             {
-                if(parkingLot[i].currentlyOccupiedCapacity < parkingLot[i].maxCapacity)
+                if(parkingLot[i].currentlyOccupiedCapacity > 0)
                 {
-                    for(int j = parkingLot.Count - 1; j > i; j--)
+                    for (int j = 1; j < i; j++)
                     {
-                        if(parkingLot[j].currentlyOccupiedCapacity <= parkingLot[i].maxCapacity - parkingLot[i].currentlyOccupiedCapacity)
+                        if(parkingLot[j].currentlyOccupiedCapacity + parkingLot[i].currentlyOccupiedCapacity <= parkingLot[j].maxCapacity && parkingLot[j].maxCapacity != parkingLot[j].currentlyOccupiedCapacity)
                         {
-                            List<IVehicle> vehiclesToMove = parkingLot[j].GetClone();
+                            List<IVehicle> vehiclesToMove = parkingLot[i].GetClone();
                             foreach (var vehicle in vehiclesToMove)
                             {
-                                parkingLot[i].AddVehicle(vehicle);
-                                parkingLot[j].RemoveVehicle(vehicle.RegNum);
+                                parkingLot[j].AddVehicle(vehicle);
+                                parkingLot[i].RemoveVehicle(vehicle.RegNum);
 
-                                orders.Add($"Move {vehicle.GetType().ToString().Substring(12).ToLower()} {vehicle.RegNum} from spot {j} to spot {i}");
-                              
+                                orders.Add($"Move {vehicle.GetType().ToString().Substring(12).ToLower()} {vehicle.RegNum} from spot {i} to spot {j}");
                             }
+                            break; 
                         }
                     }
                 }
             }
+
+
             return orders;
         }
 
