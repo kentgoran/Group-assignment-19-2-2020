@@ -67,8 +67,6 @@ namespace AssemblyTwo
 
         public List<string> Optimize()
         {
-            int test = 1;
-
             List<string> orders = new List<string>();
 
             for (int i = parkingLot.Count-1; i > 1; i--)
