@@ -23,10 +23,6 @@ namespace AssemblyTwo
         public int AddVehicle(IVehicle vehicle)
         {
             int spot = -1;
-            if (string.IsNullOrEmpty(vehicle.RegNum))
-            {
-                throw new ArgumentNullException("vehicle.RegNum");
-            }
             for (int i = 1; i < parkingLot.Count; i++)
             {
                 if (parkingLot[i].AddVehicle(vehicle))
@@ -40,10 +36,9 @@ namespace AssemblyTwo
 
         public int AddVehicle(IVehicle vehicle, int spot)
         {
-            //TODO: CHECK SPOT
-            if (string.IsNullOrEmpty(vehicle.RegNum))
+            if(spot < 1 || spot >= parkingLot.Count)
             {
-                throw new ArgumentNullException("vehicle.RegNum");
+                throw new IndexOutOfRangeException($"Spotnumber must be between 1 and {parkingLot.Count - 1}.");
             }
             return parkingLot[spot].AddVehicle(vehicle) ? spot : -1;
         }
