@@ -20,7 +20,7 @@ namespace AssemblyOne
 
         public Motorcycle(string regNum, DateTime arrivalTime)
         {
-            this.regNum = regNum;
+            this.regNum = regNum.ToUpper();
             this.arrivalTime = arrivalTime;
         }
 
