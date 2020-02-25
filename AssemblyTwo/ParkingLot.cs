@@ -57,7 +57,10 @@ namespace AssemblyTwo
         {
             regNum = regNum.ToUpper();
             int oldSpot = FindVehicle(regNum);
-
+            if (spot < 1 || spot >= parkingLot.Count)
+            {
+                throw new IndexOutOfRangeException($"Spotnumber must be between 1 and {parkingLot.Count - 1}.");
+            }
             IVehicle movingVehicle = RemoveVehicle(regNum);
 
             if (!parkingLot[spot].AddVehicle(movingVehicle))
@@ -113,7 +116,7 @@ namespace AssemblyTwo
             }
             if (spot == -1)
             {
-                throw new Exception("Registration number was not found");
+                throw new ArgumentException("Registration number was not found");
             }
 
             return spot;
