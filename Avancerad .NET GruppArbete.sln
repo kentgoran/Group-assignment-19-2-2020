@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyOne", "AssemblyOne\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyTwo", "AssemblyTwo\AssemblyTwo.csproj", "{9812D4E5-731C-4BCB-A62C-17061A13C912}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyTwoTest", "AssemblyTwoTest\AssemblyTwoTest.csproj", "{EB6226F2-2EBC-4BAA-B25D-A95A20975511}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9812D4E5-731C-4BCB-A62C-17061A13C912}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9812D4E5-731C-4BCB-A62C-17061A13C912}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9812D4E5-731C-4BCB-A62C-17061A13C912}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB6226F2-2EBC-4BAA-B25D-A95A20975511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB6226F2-2EBC-4BAA-B25D-A95A20975511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB6226F2-2EBC-4BAA-B25D-A95A20975511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB6226F2-2EBC-4BAA-B25D-A95A20975511}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
