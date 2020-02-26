@@ -17,7 +17,12 @@ namespace AssemblyTwo
             this.currentlyOccupiedCapacity = 0;
             this.maxCapacity = maxNewCapacity;
         }
-
+        /// <summary>
+        /// Attempts to add a vehicle to the parkingSpot. Returns true if success, else false
+        /// Also changes currentlyOccupiedCapacity accordingly.
+        /// </summary>
+        /// <param name="vehicleToPark">the iVehicle to park</param>
+        /// <returns>Boolean, true if success, else false</returns>
         public bool AddVehicle(IVehicle vehicleToPark)
         {
             if (currentlyOccupiedCapacity + vehicleToPark.Size <= maxCapacity)
@@ -30,7 +35,11 @@ namespace AssemblyTwo
 
             return false;
         }
-
+        /// <summary>
+        /// Removes and returns an iVehicle, given it's regnum
+        /// </summary>
+        /// <param name="regNum">the vehicle to remove's regnum</param>
+        /// <returns>The removed vehicle</returns>
         public IVehicle RemoveVehicle(string regNum)
         {
             int space = 0;
@@ -54,7 +63,11 @@ namespace AssemblyTwo
 
             return vehicleToRemove;
         }
-
+        /// <summary>
+        /// Checks if a vehicle is present at the spot, returns true if it is, else false
+        /// </summary>
+        /// <param name="regNum">the regnum to check after</param>
+        /// <returns>Boolean, true if present, else false</returns>
         public bool VehiclePresent(string regNum)
         {
             for(int i = 0; i < parkingSpace.Count; i++)
@@ -67,7 +80,10 @@ namespace AssemblyTwo
             return false;
 
         }
-
+        /// <summary>
+        /// Gets and returns a clone of the list of iVehicles currently present in the parkingSpot.
+        /// </summary>
+        /// <returns>a list of iVehicles</returns>
         public List<IVehicle> GetClone()
         {
 
